@@ -97,8 +97,8 @@ const Menu = ({ history }) => (
                 <li className="nav-item ml-auto">
                         <Link
                             className="nav-link py-0"
-                            style={isActive(history, "/signup")}
-                            to="/signup"
+                            style={isActive(history, "/sellersignup")}
+                            to="/sellersignup"
                         >
                            Become a Seller 
                         </Link>
