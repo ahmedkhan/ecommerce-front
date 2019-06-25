@@ -5,8 +5,7 @@ import Menu from "./Menu";
 const CustomerCare = ()=>{
     return(
         <div>
-        <Menu/>
-       <h2>CustomerCare</h2>
+       
        </div>
     )
 }

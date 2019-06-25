@@ -68,8 +68,8 @@ const Card = ({
         return quantity > 0 ? (
             <span className="badge badge-primary badge-pill">In Stock</span>
         ) : (
-            <span className="badge badge-primary badge-pill">Out of Stock</span>
-        );
+                <span className="badge badge-primary badge-pill">Out of Stock</span>
+            );
     };
 
     const handleChange = productId => event => {
@@ -102,24 +102,22 @@ const Card = ({
     };
 
     return (
-        <div className="card">
-            <div className="card-header name">{product.name}</div>
-            <div className="card-body">
-                {shouldRedirect(redirect)}
-                <ShowImage item={product} url="product" />
-                <p className="lead mt-2">
-                    {product.description.substring(0, 100)}
-                </p>
-                <p className="black-10">${product.price}</p>
-                <p className="black-9">
-                    Category: {product.category && product.category.name}
-                </p>
-                <p className="black-8">
-                    Added on {moment(product.createdAt).fromNow()}
-                </p>
-
-                {showStock(product.quantity)}
-                <br />
+        <div class="card" style={{"width": "18rem"}}>
+            <ShowImage item={product} url="product" />
+            <div class="card-body">
+            {shouldRedirect(redirect)}
+                <h5 class="card-title">{product.name}</h5>
+                <p class="card-text">{product.description.substring(0, 100)}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">${product.price}</li>
+                <li class="list-group-item">Category: {product.category && product.category.name}</li>
+                <li class="list-group-item">Added on {moment(product.createdAt).fromNow()}</li>
+            </ul>
+            <div class="card-body">
+            
+                {showStock(product.quantity)} 
+                <br/>
 
                 {showViewButton(showViewProductButton)}
 
@@ -128,6 +126,7 @@ const Card = ({
                 {showRemoveButton(showRemoveProductButton)}
 
                 {showCartUpdateOptions(cartUpdate)}
+                
             </div>
         </div>
     );

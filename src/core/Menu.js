@@ -12,9 +12,19 @@ const isActive = (history, path) => {
 };
 
 const Menu = ({ history }) => (   
-    <div>      
-        <ul className="nav nav-tabs bg-primary">           
-        
+     
+    <nav className="navbar navbar-top navbar-expand-lg navbar-dark bg-secondary">    
+    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <ul className="navbar-nav mr-auto">
+        <li><Link to="#" className="nav-link py-0"> <i className="fab fa-facebook"></i> </Link></li>
+		<li><Link to="#" className="nav-link py-0"> <i className="fab fa-instagram"></i> </Link></li>
+		<li><Link to="#" className="nav-link py-0"> <i className="fab fa-twitter"></i> </Link></li>
+      </ul>
+
+    <div className="collapse navbar-collapse" id="navbarsExample07"> 
+        <ul className="navbar-nav ml-auto">        
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
                 <Fragment>
                 <li className="nav-item ml-auto">
@@ -52,7 +62,7 @@ const Menu = ({ history }) => (
 
             {isAuthenticated() && isAuthenticated().user.role === 1 && (
                <Fragment>
-               <li className="nav-item ml-auto">
+               <li className="nav-item ">
                 <Link
                     className="nav-link py-0"
                     style={isActive(history, "/")}
@@ -154,7 +164,9 @@ const Menu = ({ history }) => (
                 </li>
             )}
         </ul>
-    </div>
+        </div> 
+        </nav>
+    
 );
 
 export default withRouter(Menu);

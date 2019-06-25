@@ -5,6 +5,9 @@ import Card from "./Card";
 import Search from "./Search";
 import Menu from "./Menu"
 import Carousel from "./Carousel";
+import image1 from "../images/1.jpg"
+import image2 from "../images/2.jpg"
+import image3 from "../images/3.jpg"
 
 
 
@@ -41,12 +44,10 @@ const Home = () => {
 
     return (
         <div>
-          <Menu/>
-           <h1></h1>
-           <h1></h1>
+        <Menu/>
+           
            <Search/>
-            <Carousel/>
-            
+            <Carousel/>            
             <h2 className="mb-4">New Arrivals</h2>
             <div className="row">
                 {productsByArrival.map((product, i) => (

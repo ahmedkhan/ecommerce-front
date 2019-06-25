@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getCategories, list } from "./apiCore";
 import Card from "./Card";
+import  logo  from '../images/logo-alibaba.png'
 
 const Search = () => {
     const [data, setData] = useState({
@@ -76,38 +77,46 @@ const Search = () => {
     };
 
     const searchForm = () => (
-        <form onSubmit={searchSubmit}>
-            <span className="input-group-text">
-                <div className="input-group input-group-lg">
-                    <div className="input-group-prepend">
-                        <select
-                            className="btn mr-2"
-                            onChange={handleChange("category")}
-                        >
-                            <option value="All">All</option>
-                            {categories.map((c, i) => (
-                                <option key={i} value={c._id}>
-                                    {c.name}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+        <div className="container">
+            <div className="row align-items-center">
+            <div>
+            <img class="logo" src={logo} alt="logo"/>
+            <h5>your Logo</h5>
+		</div>
+                <div className="mx-auto" >
+                    <form className="search-wrap" onSubmit={searchSubmit} style={{ "maxwidth": "150%" }}>
+                        <div className="input-group w-100">
+                            <input type="search"
+                                className="form-control"
+                                style={{ "maxwidth": "250%" }}
+                                placeholder="Search"
+                                onChange={handleChange("search")} />
 
-                    <input
-                        type="search"
-                        className="form-control"
-                        onChange={handleChange("search")}
-                        placeholder="Search by name"
-                    />
+
+                            <select className="custom-select" name="category_name" style={{ "maxwidth": "100%" }} >
+                                <option value="">All categories</option>
+                                {categories.map((c, i) => (
+                                    <option key={i} value={c._id}>
+                                        {c.name}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="input-group-append">
+                                <button className="btn btn-primary" type="submit">
+                                    <i className="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
                 </div>
-                <div
-                    className="btn input-group-append"
-                    style={{ border: "none" }}
-                >
-                    <button className="input-group-text">Search</button>
-                </div>
-            </span>
-        </form>
+            </div>
+        </div>
+
     );
 
     return (
