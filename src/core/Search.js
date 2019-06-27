@@ -80,9 +80,8 @@ const Search = () => {
         <div className="container">
             <div className="row align-items-center">
             <div>
-            <img class="logo" src={logo} alt="logo"/>
-            <h5>your Logo</h5>
-		</div>
+            <img className="logo" src={logo} alt="logo"/>           
+		    </div>
                 <div className="mx-auto" >
                     <form className="search-wrap" onSubmit={searchSubmit} style={{ "maxwidth": "150%" }}>
                         <div className="input-group w-100">

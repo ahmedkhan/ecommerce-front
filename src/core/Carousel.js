@@ -1,51 +1,38 @@
 import React from "react";
-import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask, MDBContainer } from
-"mdbreact";
+import {Link} from "react-router-dom";
 import images from '../images/1.jpg'
 import images2 from '../images/2.jpg'
 import images3 from '../images/3.jpg'
-import "../styles.css";
+
 const CarouselPage = () => {
   return (
-    <MDBContainer>
-      <MDBCarousel
-        activeItem={1}
-        length={3}
-        showControls={false}
-        showIndicators={false}
-        className="z-depth-1"
-      >
-        <MDBCarouselInner>
-          <MDBCarouselItem itemId="1">
-            <MDBView>
-              <img
-                className="d-block w-100"
-                src={images}
-                alt="First slide"
-              />
-            </MDBView>
-          </MDBCarouselItem>
-          <MDBCarouselItem itemId="2">
-            <MDBView>
-              <img
-                className="d-block w-100"
-                src={images2}
-                alt="Second slide"
-              />
-            </MDBView>
-          </MDBCarouselItem>
-          <MDBCarouselItem itemId="3">
-            <MDBView>
-              <img
-                className="d-block w-100"
-                src={images3}
-                alt="Third slide"
-              />
-            </MDBView>
-          </MDBCarouselItem>
-        </MDBCarouselInner>
-      </MDBCarousel>
-    </MDBContainer>
+    <div id="myCarousel" className="carousel slide" data-ride="carousel">
+    
+    <ol className="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    
+    <div className="carousel-inner">
+        <div className="carousel-item active">
+            <img className="d-md-block w-100" src={images} alt="First Slide" />
+        </div>
+        <div className="carousel-item">
+            <img className="d-md-block w-100" src={images2} alt="Second Slide"/>
+        </div>
+        <div className="carousel-item">
+            <img className="d-md-block w-100" src={images3} alt="Third Slide"/>
+        </div>
+    </div>
+   
+    <Link className="carousel-control-prev" to="#myCarousel" data-slide="prev">
+        <span className="carousel-control-prev-icon"></span>
+    </Link>
+    <Link className="carousel-control-next" to="#myCarousel" data-slide="next">
+        <span className="carousel-control-next-icon"></span>
+    </Link>
+</div>
   );
 }
 

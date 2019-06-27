@@ -68,7 +68,7 @@ const Card = ({
         return quantity > 0 ? (
             <span className="badge badge-primary badge-pill">In Stock</span>
         ) : (
-                <span className="badge badge-primary badge-pill">Out of Stock</span>
+                <span className="badge badge-danger badge-pill">Out of Stock</span>
             );
     };
 
@@ -102,19 +102,19 @@ const Card = ({
     };
 
     return (
-        <div class="card" style={{"width": "18rem"}}>
+        <div className="card" style={{"width": "300px"}}>
             <ShowImage item={product} url="product" />
-            <div class="card-body">
+            <div className="card-body">
             {shouldRedirect(redirect)}
-                <h5 class="card-title">{product.name}</h5>
-                <p class="card-text">{product.description.substring(0, 100)}</p>
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text">{product.description.substring(0, 100)}</p>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">${product.price}</li>
-                <li class="list-group-item">Category: {product.category && product.category.name}</li>
-                <li class="list-group-item">Added on {moment(product.createdAt).fromNow()}</li>
+            <ul className="list-group list-group-flush">
+                <li className="list-group-item">${product.price}</li>
+                <li className="list-group-item">Category: {product.category && product.category.name}</li>
+                <li className="list-group-item">Added on {moment(product.createdAt).fromNow()}</li>
             </ul>
-            <div class="card-body">
+            <div className="card-body">
             
                 {showStock(product.quantity)} 
                 <br/>

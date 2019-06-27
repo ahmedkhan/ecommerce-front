@@ -38,40 +38,67 @@ const Signup = () => {
     };
 
     const signUpForm = () => (
-        <form>
-            <div className="form-group">
-                <label className="text-muted">Name</label>
-                <input
-                    onChange={handleChange("name")}
-                    type="text"
-                    className="form-control"
-                    value={name}
-                />
-            </div>
+        
+<div className="card">
+<article className="card-body mx-auto" style={{"maxwidth": "400px"}}>
+	<h4 className="card-title mt-3 text-center">Create Account</h4>
+	<p className="text-center">Get started with your free account</p>	
+	<form>
+	<div className="form-group input-group">
+		<div className="input-group-prepend">
+		    <span className="input-group-text"> <i className="fa fa-user"></i> </span>
+		 </div>
+        <input value={name} className="form-control" placeholder="Full name" type="text" onChange={handleChange("name")}/>
+    </div> 
+    <div className="form-group input-group">
+    	<div className="input-group-prepend">
+		    <span className="input-group-text"> <i className="fa fa-envelope"></i> </span>
+		 </div>
+        <input value={email} className="form-control" placeholder="Email address" type="email" onChange={handleChange("email")}/>
+    </div> 
+    <div className="form-group input-group">
+    	<div className="input-group-prepend">
+		    <span className="input-group-text"> <i className="fa fa-phone"></i> </span>
+		</div>
+		<select className="custom-select" style={{"maxwidth": "120px"}}>
+		    <option defaultValue="">+92</option>
+		    <option value="1">+972</option>
+		    <option value="2">+198</option>
+		    <option value="3">+701</option>
+		</select>
+    	<input name="" className="form-control" placeholder="Phone number" type="text"/>
+    </div> 
+    <div className="form-group input-group">
+    	<div className="input-group-prepend">
+		    <span className="input-group-text"> <i className="fa fa-building"></i> </span>
+		</div>
+		<select className="form-control">
+			<option defaultValue=""> Select job type</option>
+			<option>Designer</option>
+			<option>Manager</option>
+			<option>Accaunting</option>
+		</select>
+	</div>
+    <div className="form-group input-group">
+    	<div className="input-group-prepend">
+		    <span className="input-group-text"> <i className="fa fa-lock"></i> </span>
+		</div>
+        <input className="form-control" placeholder="Create password" type="password" onChange={handleChange("password")} value={password}/>
+    </div> 
+    <div className="form-group input-group">
+    	<div className="input-group-prepend">
+		    <span className="input-group-text"> <i className="fa fa-lock"></i> </span>
+		</div>
+        <input className="form-control" placeholder="Repeat password" type="password" onChange={handleChange("password")} value={password}/>
+    </div>                                  
+    <div className="form-group">
+        <button type="submit" className="btn btn-primary btn-block" onClick={clickSubmit}> Create Account  </button>
+    </div> 
+    <p className="text-center">Have an account? <Link to="/signin" className="nav-Link">Log In</Link> </p>                                                                 
+</form>
+</article>
+</div> 
 
-            <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input
-                    onChange={handleChange("email")}
-                    type="email"
-                    className="form-control"
-                    value={email}
-                />
-            </div>
-
-            <div className="form-group">
-                <label className="text-muted">Password</label>
-                <input
-                    onChange={handleChange("password")}
-                    type="password"
-                    className="form-control"
-                    value={password}
-                />
-            </div>
-            <button onClick={clickSubmit} className="btn btn-primary">
-                Submit
-            </button>
-        </form>
     );
 
     const showError = () => (
@@ -100,6 +127,7 @@ const Signup = () => {
         >
             {showSuccess()}
             {showError()}
+            <br/>
             {signUpForm()}
         </Layout>
     );

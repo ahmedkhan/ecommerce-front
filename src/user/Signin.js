@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Layout from "../core/Layout";
 import { signin, authenticate, isAuthenticated } from "../auth";
 
@@ -37,30 +37,38 @@ const Signin = () => {
     };
 
     const signUpForm = () => (
-        <form>
-            <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input
-                    onChange={handleChange("email")}
-                    type="email"
-                    className="form-control"
-                    value={email}
-                />
-            </div>
 
-            <div className="form-group">
-                <label className="text-muted">Password</label>
-                <input
-                    onChange={handleChange("password")}
-                    type="password"
-                    className="form-control"
-                    value={password}
-                />
-            </div>
-            <button onClick={clickSubmit} className="btn btn-primary">
-                Submit
-            </button>
-        </form>
+        <div className="card">
+            <article className="card-body">
+                <h4 className="card-title text-center mb-4 mt-1">Sign in</h4>
+                <hr />
+                <p className="text-success text-center">Please enter your Email and Password</p>
+                <form>
+                    <div className="form-group">
+                        <div className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text"> <i className="fa fa-user"></i> </span>
+                            </div>
+                            <input value={email} className="form-control" placeholder="Email or login" type="email" onChange={handleChange("email")} />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text"> <i className="fa fa-lock"></i> </span>
+                            </div>
+                            <input value={password} className="form-control" placeholder="******" type="password" onChange={handleChange("password")} />
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <button type="submit" className="btn btn-primary btn-block" onClick={clickSubmit}> Login  </button>
+                    </div>
+                    <div className="text-center"><Link to="#" className="nav-link">Forgot password?</Link> <Link to="/signup" className="nav-link">SignUp</Link></div>
+                    
+                </form>
+            </article>
+        </div>
+
     );
 
     const showError = () => (

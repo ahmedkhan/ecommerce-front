@@ -13,7 +13,7 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => (   
      
-    <nav className="navbar navbar-top navbar-expand-lg navbar-dark bg-secondary">    
+    <nav className="navbar navbar-expand-md navbar-dark bg-secondary">    
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,7 @@ const Menu = ({ history }) => (
         <ul className="navbar-nav ml-auto">        
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
                 <Fragment>
-                <li className="nav-item ml-auto">
+                <li className="nav-item">
                 <Link
                     className="nav-link py-0"
                     style={isActive(history, "/")}

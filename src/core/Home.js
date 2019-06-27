@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Layout from "./Layout";
 import { getProducts } from "./apiCore";
 import Card from "./Card";
 import Search from "./Search";
 import Menu from "./Menu"
 import Carousel from "./Carousel";
-import image1 from "../images/1.jpg"
-import image2 from "../images/2.jpg"
-import image3 from "../images/3.jpg"
+
 
 
 
@@ -15,7 +12,7 @@ import image3 from "../images/3.jpg"
 const Home = () => {
     const [productsBySell, setProductsBySell] = useState([]);
     const [productsByArrival, setProductsByArrival] = useState([]);
-    const [error, setError] = useState(false);
+    const [setError] = useState(false);
 
     const loadProductsBySell = () => {
         getProducts("sold").then(data => {
@@ -44,11 +41,12 @@ const Home = () => {
 
     return (
         <div>
-        <Menu/>
-           
-           <Search/>
-            <Carousel/>            
-            <h2 className="mb-4">New Arrivals</h2>
+            <Menu />
+            
+            <Search />
+            <Carousel />
+            <br/>
+            <h2 className="text-muted mb-4"><b>New Arrivals</b></h2>
             <div className="row">
                 {productsByArrival.map((product, i) => (
                     <div key={i} className="col-4 mb-3">
@@ -56,8 +54,8 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-
-            <h2 className="mb-4">Best Sellers</h2>
+            <br/>        
+            <h2 className="text-muted mb-4"><b>Best Sellers</b></h2>
             <div className="row">
                 {productsBySell.map((product, i) => (
                     <div key={i} className="col-4 mb-3">
