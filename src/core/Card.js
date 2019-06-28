@@ -73,8 +73,8 @@ const Card = ({
     };
 
     const handleChange = productId => event => {
-        setCount(event.target.value < 1 ? 1 : event.target.value);
-        if (event.target.value >= 1) {
+        setCount(event.target.value < 0 ? 0 : event.target.value);
+        if (event.target.value >= 0) {
             updateItem(productId, event.target.value);
         }
     };
@@ -82,13 +82,15 @@ const Card = ({
     const showCartUpdateOptions = cartUpdate => {
         return (
             cartUpdate && (
-                <div>
-                    <div className="input-group mb-3">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
+                <div className="hidden-xl-up">
+                    <div className="input-group hidden-xl-up">
+                        <div className="input-group hidden-xl-up">
+                            <span className="d-inline p-2 bg-dark text-white hidden-xl-up">
                                 Adjust Quantity
                             </span>
                         </div>
+
+                        
                         <input
                             type="number"
                             className="form-control"
@@ -102,9 +104,9 @@ const Card = ({
     };
 
     return (
-        <div className="card" style={{"width": "300px"}}>
+        <div className="card hidden-xl-up">
             <ShowImage item={product} url="product" />
-            <div className="card-body">
+            <div className="card-body hidden-xl-up">
             {shouldRedirect(redirect)}
                 <h5 className="card-title">{product.name}</h5>
                 <p className="card-text">{product.description.substring(0, 100)}</p>
@@ -120,7 +122,7 @@ const Card = ({
                 <br/>
 
                 {showViewButton(showViewProductButton)}
-
+                
                 {showAddToCart(showAddToCartButton)}
 
                 {showRemoveButton(showRemoveProductButton)}

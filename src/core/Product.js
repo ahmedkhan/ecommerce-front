@@ -41,15 +41,16 @@ const Product = props => {
             }
             className="container-fluid"
         >
-            <div className="row no-gutters">
-                <div className="col-8">
+            <div className="row no-gutters">            
+                <div className="col-7 border border-primary">
+                
                     {product && product.description && (
                         <Card product={product} showViewProductButton={false} />
                     )}
                 </div>
-
-                <div className="col-4">
-                    <h4>Related products</h4>
+                  <hr/>      
+                <div className="col-4 border border-info">
+                    <h4 className="d-block p-2 bg-dark text-white">Related products</h4>
                     {relatedProduct.map((p, i) => (
                         <div className="mb-3">
                             <Card key={i} product={p} />

@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import images from '../images/1.jpg'
 import images2 from '../images/2.jpg'
 import images3 from '../images/3.jpg'
+import "../styles.css"
 
 const CarouselPage = () => {
   return (

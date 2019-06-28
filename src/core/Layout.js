@@ -13,9 +13,11 @@ const Layout = ({
     <div>
     
         <Menu />
-        <Search/>
+        <br/>        
         <Carousel/>
-        <br/>
+        <br/>  
+        <Search/>
+           
         <div className={className}>{children}</div>
     </div>
 );

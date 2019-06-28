@@ -1,11 +1,11 @@
 import React from "react";
-import Menu from "./Menu";
-
+import Layout from "./Layout";
+import Search from "./Search";
 
 const CustomerCare = ()=>{
     return(
-        <div>
-       
+        <div>            
+            <Layout/>
        </div>
     )
 }

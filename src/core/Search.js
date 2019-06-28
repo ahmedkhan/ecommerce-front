@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { getCategories, list } from "./apiCore";
 import Card from "./Card";
-import  logo  from '../images/logo-alibaba.png'
+
 
 const Search = () => {
     const [data, setData] = useState({
@@ -46,6 +47,7 @@ const Search = () => {
     const searchSubmit = e => {
         e.preventDefault();
         searchData();
+        
     };
 
     const handleChange = name => event => {
@@ -64,7 +66,7 @@ const Search = () => {
     const searchedProducts = (results = []) => {
         return (
             <div>
-                <h2 className="mt-4 mb-4">
+                <h2 className="text-muted mb-4">
                     {searchMessage(searched, results)}
                 </h2>
                 <div className="row">
@@ -77,15 +79,13 @@ const Search = () => {
     };
 
     const searchForm = () => (
-        <div className="container">
-            <div className="row align-items-center">
-            <div>
-            <img className="logo" src={logo} alt="logo"/>           
-		    </div>
+        <div className="container hidden-xl-up ">
+            <div className="row align-items-center">            
                 <div className="mx-auto" >
-                    <form className="search-wrap" onSubmit={searchSubmit} style={{ "maxwidth": "150%" }}>
-                        <div className="input-group w-100">
+                    <form className="search-wrap" onSubmit={searchSubmit} >
+                        <div className="input-group input-group-sm mb-3">
                             <input type="search"
+                                aria-describedby="inputGroup-sizing-sm"
                                 className="form-control"
                                 style={{ "maxwidth": "250%" }}
                                 placeholder="Search"

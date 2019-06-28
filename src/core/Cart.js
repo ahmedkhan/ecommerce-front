@@ -35,7 +35,7 @@ const Cart = () => {
             Your cart is empty. <br /> <Link to="/shop">Continue shopping</Link>
         </h2>
     );
-
+ 
     return (
         <Layout
             title="Shopping Cart"

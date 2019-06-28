@@ -41,6 +41,8 @@ const Checkout = ({ products }) => {
 
     const handleAddress = event => {
         setData({ ...data, address: event.target.value });
+        
+        
     };
 
     const getTotal = () => {
@@ -59,9 +61,14 @@ const Checkout = ({ products }) => {
         );
     };
 
-    let deliveryAddress = data.address;
+    let deliveryAddress = data.address; 
 
     const buy = () => {
+        if (deliveryAddress == null){            
+            alert("Enter Address")
+            
+        }else{
+
         setData({ loading: true });
         // send the nonce to your server
         // nonce = data.instance.requestPaymentMethod()
@@ -113,7 +120,7 @@ const Checkout = ({ products }) => {
                                 setData({ loading: false });
                             });
                     })
-                    .catch(error => {
+                    .catch(error => {                        
                         console.log(error);
                         setData({ loading: false });
                     });
@@ -122,11 +129,13 @@ const Checkout = ({ products }) => {
                 // console.log("dropin error: ", error);
                 setData({ ...data, error: error.message });
             });
+        };
     };
+    
 
     const showDropIn = () => (
         <div onBlur={() => setData({ ...data, error: "" })}>
-            {data.clientToken !== null && products.length > 0 ? (
+            {data.clientToken !== null  && products.length > 0 ? (
                 <div>
                     <div className="gorm-group mb-3">
                         <label className="text-muted">Delivery address:</label>
@@ -136,14 +145,11 @@ const Checkout = ({ products }) => {
                             value={data.address}
                             placeholder="Type your delivery address here..."
                         />
-                    </div>
-
+                    </div>                    
                     <DropIn
                         options={{
                             authorization: data.clientToken,
-                            paypal: {
-                                flow: "vault"
-                            }
+                            
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
@@ -164,6 +170,8 @@ const Checkout = ({ products }) => {
         </div>
     );
 
+    
+
     const showSuccess = success => (
         <div
             className="alert alert-info"
@@ -177,11 +185,13 @@ const Checkout = ({ products }) => {
         loading && <h2 className="text-danger">Loading...</h2>;
 
     return (
+        
         <div>
             <h2>Total: ${getTotal()}</h2>
-            {showLoading(data.loading)}
+            
+            {showLoading(data.loading)}           
             {showSuccess(data.success)}
-            {showError(data.error)}
+            {showError(data.error)}            
             {showCheckout()}
         </div>
     );

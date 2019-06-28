@@ -40,13 +40,14 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className="hidden-xl-up">
             <Menu />
-            
-            <Search />
+            <br />
             <Carousel />
-            <br/>
-            <h2 className="text-muted mb-4"><b>New Arrivals</b></h2>
+            <br />
+            <Search />
+            <span className="d-block p-2 bg-primary text-white"><b>New Arrivals</b></span>
+            <br />
             <div className="row">
                 {productsByArrival.map((product, i) => (
                     <div key={i} className="col-4 mb-3">
@@ -54,8 +55,9 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-            <br/>        
-            <h2 className="text-muted mb-4"><b>Best Sellers</b></h2>
+            <br />
+            <span className="d-block p-2 bg-primary text-white"><b>Best Seller's</b></span>
+            <br />
             <div className="row">
                 {productsBySell.map((product, i) => (
                     <div key={i} className="col-4 mb-3">
